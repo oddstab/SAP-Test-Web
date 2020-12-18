@@ -12,15 +12,20 @@ const Layout: React.FC = ({ children }) => {
         palette: {
           type: "dark",
         },
+        typography: {
+          button: {
+            textTransform: "none",
+          },
+        },
       })}
     >
       <CssBaseline />
-      {children}
+      <div className="container">{children}</div>
       <footer>
         <a
-          href="https://github.com/oddstab"
+          href="https://github.com/oddstab/SAP-Test-Web"
           target="_blank"
-          title="Github原始碼"
+          title="View Source Code"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -32,12 +37,36 @@ const Layout: React.FC = ({ children }) => {
           </svg>
         </a>
       </footer>
+
+      <style global jsx>
+        {`
+          html,
+          body {
+            height: 100%;
+            margin: 0;
+          }
+
+          .container {
+            min-height: ;
+          }
+        `}
+      </style>
+
       <style jsx>
         {`
+          .container {
+            width: 768px;
+            margin: 40px auto;
+            height: calc(100vh - 48px);
+          }
+
           footer {
-            padding: 15px 0;
+            width: 100vw;
+            height: 48px;
+            padding: 6px 0;
             display: flex;
             justify-content: center;
+            background: #0000002e;
           }
 
           footer > a > svg {

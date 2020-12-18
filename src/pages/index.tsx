@@ -2,7 +2,7 @@ import { NextPage } from "next";
 import React from "react";
 import { Layout } from "@/components/";
 import QuestionCard from "@/components/QuestionCard";
-import { Container } from "@material-ui/core";
+import { Card, Container } from "@material-ui/core";
 
 const json = [
   {
@@ -351,9 +351,7 @@ const json = [
  */
 const breakArray = (arr: any[]) => {
   let newArr = [...arr];
-  newArr.sort(function () {
-    return 0.5 - Math.random();
-  });
+  newArr.sort(() => 0.5 - Math.random());
 
   return newArr;
 };
@@ -361,34 +359,7 @@ const breakArray = (arr: any[]) => {
 const Index: NextPage = () => {
   return (
     <Layout>
-      <Container>324</Container>
-      <div className="container">
-        {json.map(({ qst, a, b, c, d, ans }, i) => (
-          <QuestionCard
-            key={qst}
-            id={i + 1}
-            question={qst}
-            ans={ans}
-            select={[a, b, c, d]}
-          />
-        ))}
-      </div>
-      <style jsx>
-        {`
-          .container {
-            width: 768px;
-            margin: 40px auto;
-          }
-        `}
-      </style>
-
-      <style global jsx>
-        {`
-          .MuiButton-label {
-            justify-content: unset !important;
-          }
-        `}
-      </style>
+      <Card>1234</Card>
     </Layout>
   );
 };

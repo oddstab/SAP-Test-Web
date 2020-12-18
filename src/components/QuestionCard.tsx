@@ -1,5 +1,6 @@
-import { Button, Card, CardContent } from "@material-ui/core";
+import { Card, CardContent } from "@material-ui/core";
 import React, { useState } from "react";
+import AnswerButton from "./AnswerButton";
 
 interface IQuestionCard {
   id: number;
@@ -7,37 +8,6 @@ interface IQuestionCard {
   select: string[];
   ans: string;
 }
-
-const AnswerButton: React.FC<{
-  highlight: boolean;
-  str: string;
-  num: number;
-  onClick: (num: number) => void;
-}> = ({ highlight, str, num, onClick }) => {
-  const handleClick = () => {
-    onClick(num);
-  };
-
-  return (
-    <Button
-      className="ans-button"
-      variant="text"
-      color="inherit"
-      disableElevation
-      fullWidth
-      style={{
-        textAlign: "left",
-        marginBottom: "0.2rem",
-        background: highlight ? "#689f38" : "",
-      }}
-      onClick={handleClick}
-    >
-      <div className="ans">
-        {String.fromCharCode(num + 65)}. {str}
-      </div>
-    </Button>
-  );
-};
 
 const QuestionCard: React.FC<IQuestionCard> = ({
   id,
@@ -51,7 +21,6 @@ const QuestionCard: React.FC<IQuestionCard> = ({
     <>
       <Card variant="outlined" style={{ marginBottom: "0.8rem" }}>
         <CardContent>
-          {/* <h6 className="title fz-16"></h6> */}
           <p className="question fz-16">{question}</p>
           {select.map((str, i) => {
             return (
